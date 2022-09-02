@@ -22,7 +22,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "semi": ["warn", "always"],
+      "quotes": ["warn", "double"],
+      "indent": ["warn", "tab", { "SwitchCase": 1 }]
+    }
   },
   "browserslist": {
     "production": [
