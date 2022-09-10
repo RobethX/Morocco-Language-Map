@@ -1,21 +1,40 @@
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
 
-export default function Map() {
-	var provinces;
+export default function Map(props) {
+	var provinces = topojson.feature(props.data, props.data.objects.provinces);
+	var projection = d3.geoMercator().fitSize([props.width, props.height], provinces);
+	var path = d3.geoPath().projection(projection);
 
-	d3.json("https://raw.githubusercontent.com/yousfiSaad/morocco-map/main/data/provinces.json")
-		.then(data => {
-			provinces = topojson.feature(data, data.objects.provinces);
-			console.log(provinces);
-		}).catch(error => {
-			console.log("error loading map", error);
-		});
+	// d3.json("https://raw.githubusercontent.com/yousfiSaad/morocco-map/main/data/provinces.json")
+	// 	.then(data => {
+	// 		provinces = topojson.feature(data, data.objects.provinces);
+	// 		console.log(provinces);
+	// 	}).catch(error => {
+	// 		console.log("error loading map", error);
+	// 	});
 
 	return (
 		<div className="Map">
-			hello, world!<br/>
-			<svg className="Map-svg"/>
+			<svg className="Map-svg" width={props.width} height={props.height}>
+				<g className="Map-provinces">
+					{provinces.features.map((feature, i) => (
+						<path
+							key={feature.properties.name}
+							d={path(feature)}
+							fill="#fff"
+							stroke="#000"
+							strokeWidth="1"
+							onMouseEnter={(e) => {
+								e.target.setAttribute("stroke", "red");
+							}}
+							onMouseLeave={(e) => {
+								e.target.setAttribute("stroke", "#000");
+							}}
+						/>
+					))}
+				</g>
+			</svg>
 		</div>
 	);
 }
