@@ -7,7 +7,7 @@ const PROVINCE_DATA_URL = "https://raw.githubusercontent.com/yousfiSaad/morocco-
 const REGION_DATA_URL = "https://raw.githubusercontent.com/yousfiSaad/morocco-map/main/data/regions.json";
 
 function App() {
-	const { data, error, loading } = useMapData(PROVINCE_DATA_URL);
+	const { data, error, loading } = useMapData(REGION_DATA_URL);
 
 	return (
 		<div className="App">

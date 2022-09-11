@@ -2,7 +2,8 @@ import * as d3 from "d3";
 import * as topojson from "topojson-client";
 
 export default function Map(props) {
-	var provinces = topojson.feature(props.data, props.data.objects.provinces);
+	var provinces = topojson.feature(props.data, props.data.objects.regions);
+	//var data = props.data;
 	var projection = d3.geoMercator().fitSize([props.width, props.height], provinces);
 	var path = d3.geoPath().projection(projection);
 
@@ -26,12 +27,14 @@ export default function Map(props) {
 							stroke="#000"
 							strokeWidth="1"
 							onMouseEnter={(e) => {
-								e.target.setAttribute("stroke", "red");
+								e.target.setAttribute("fill", "red");
 							}}
 							onMouseLeave={(e) => {
-								e.target.setAttribute("stroke", "#000");
+								e.target.setAttribute("fill", "#fff");
 							}}
-						/>
+						>
+							<title>{feature.properties.name}</title>
+						</path>
 					))}
 				</g>
 			</svg>
