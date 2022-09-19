@@ -8,6 +8,20 @@
 	font-size: calc(10px + 1vmin);
 }
 
-.App-link {
-	color: #61dafb;
+.App-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.App-chart {
+	min-width: 80vh;
+}
+
+.App-chart {
+	min-width: 30vw;
 }

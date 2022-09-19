@@ -1,4 +1,5 @@
 import "./App.css";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Map from "./components/Map";
 import useMapData from "./hooks/useMapData";
@@ -11,14 +12,17 @@ function App() {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <p>Edit <code>src/App.js</code> and save to reload.</p>
-            </header>
+            <Header />
 
-            <div className="App-map">
-                {loading ? <p>Loading...</p> : error ? <p>Error!</p> : (
-                    <Map data={data} width="800" height="800"/>
-                )}
+            <div className="App-container">
+				<div className="App-chart">
+					Data!
+				</div>
+                <div className="App-map">
+                    {loading ? <p>Loading...</p> : error ? <p>Error!</p> : (
+                        <Map data={data} width="800" height="800"/>
+                    )}
+                </div>
             </div>
 
             <Footer />
