@@ -7,7 +7,7 @@ on:
   
     
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,16 +19,9 @@ jobs:
         cache: 'yarn'
     - run: yarn install --immutable --immutable-cache --check-cache
     - run: yarn build
-    
-  deploy:
-    runs-on: ubuntu-latest
-    if: ${{ success() }}
-    needs: build
-    
-    steps:
     - name: Upload GitHub Pages artifact
       uses: actions/upload-pages-artifact@v1.0.4
       with:
-        path: build/
+        path: build
     - name: Deploy GitHub Pages site
       uses: actions/deploy-pages@v1.2.0
