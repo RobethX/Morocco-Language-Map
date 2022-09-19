@@ -20,7 +20,7 @@ export default function Map(props) {
                             strokeWidth="1"
                             onMouseEnter={(e) => {
                                 e.target.setAttribute("fill", "red");
-								props.hoverCallback(feature.properties.name);
+                                props.hoverCallback(feature.properties.name);
                             }}
                             onMouseLeave={(e) => {
                                 e.target.setAttribute("fill", "#fff");
