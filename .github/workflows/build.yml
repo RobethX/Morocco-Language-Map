@@ -1,8 +1,10 @@
 name: Build and Deploy Site
 
 on:
+  workflow_dispatch:
   release:
     types: [published]
+  
     
 jobs:
   build:
