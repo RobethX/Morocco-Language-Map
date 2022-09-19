@@ -7,23 +7,23 @@ const PROVINCE_DATA_URL = "https://raw.githubusercontent.com/yousfiSaad/morocco-
 const REGION_DATA_URL = "https://raw.githubusercontent.com/yousfiSaad/morocco-map/main/data/regions.json";
 
 function App() {
-	const { data, error, loading } = useMapData(REGION_DATA_URL);
+    const { data, error, loading } = useMapData(REGION_DATA_URL);
 
-	return (
-		<div className="App">
-			<header className="App-header">
-				<p>Edit <code>src/App.js</code> and save to reload.</p>
-			</header>
+    return (
+        <div className="App">
+            <header className="App-header">
+                <p>Edit <code>src/App.js</code> and save to reload.</p>
+            </header>
 
-			<div className="App-map">
-				{loading ? <p>Loading...</p> : error ? <p>Error!</p> : (
-					<Map data={data} width="800" height="800"/>
-				)}
-			</div>
+            <div className="App-map">
+                {loading ? <p>Loading...</p> : error ? <p>Error!</p> : (
+                    <Map data={data} width="800" height="800"/>
+                )}
+            </div>
 
-			<Footer />
-		</div>
-	);
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

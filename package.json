@@ -35,11 +35,7 @@
 				"double"
 			],
 			"indent": [
-				"warn",
-				"tab",
-				{
-					"SwitchCase": 1
-				}
+				"warn", 4, { "SwitchCase": 1 }
 			]
 		}
 	},
