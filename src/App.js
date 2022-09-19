@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Footer from "./components/Footer";
 import Map from "./components/Map";
 import useMapData from "./hooks/useMapData";
 
@@ -12,11 +12,16 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
+				<p>Edit <code>src/App.js</code> and save to reload.</p>
+			</header>
+
+			<div className="App-map">
 				{loading ? <p>Loading...</p> : error ? <p>Error!</p> : (
 					<Map data={data} width="800" height="800"/>
 				)}
-				<p>Edit <code>src/App.js</code> and save to reload.</p>
-			</header>
+			</div>
+
+			<Footer />
 		</div>
 	);
 }
