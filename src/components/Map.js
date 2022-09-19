@@ -7,14 +7,6 @@ export default function Map(props) {
     var projection = d3.geoMercator().fitSize([props.width, props.height], provinces);
     var path = d3.geoPath().projection(projection);
 
-    // d3.json("https://raw.githubusercontent.com/yousfiSaad/morocco-map/main/data/provinces.json")
-    //     .then(data => {
-    //         provinces = topojson.feature(data, data.objects.provinces);
-    //         console.log(provinces);
-    //     }).catch(error => {
-    //         console.log("error loading map", error);
-    //     });
-
     return (
         <div className="Map">
             <svg className="Map-svg" width={props.width} height={props.height}>
@@ -28,6 +20,7 @@ export default function Map(props) {
                             strokeWidth="1"
                             onMouseEnter={(e) => {
                                 e.target.setAttribute("fill", "red");
+								props.hoverCallback(feature.properties.name);
                             }}
                             onMouseLeave={(e) => {
                                 e.target.setAttribute("fill", "#fff");
