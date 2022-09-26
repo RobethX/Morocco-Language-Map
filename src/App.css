@@ -10,7 +10,8 @@
 
 .App-container {
 	display: flex;
-	flex-direction: row;
+	/* flex-direction: row; */
+	flex-direction: column;
 	flex-wrap: wrap;
 	align-items: stretch;
 	text-align: center;
@@ -18,8 +19,9 @@
 	height: 100%;
 }
 
-.App-chart {
+.App-map {
 	min-width: 80vh;
+	max-width: 100%;
 }
 
 .App-chart {
