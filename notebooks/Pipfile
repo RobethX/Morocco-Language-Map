@@ -15,6 +15,7 @@ pyreadstat = "*"
 [dev-packages]
 nbconvert = "*"
 pyppeteer = "*"
+jupyterlab = "*"
 
 [requires]
 python_version = "3.8"
