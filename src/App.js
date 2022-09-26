@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Map from "./components/Map";
+import Map from "./components/vis/Map";
 import useMapData from "./hooks/useMapData";
 import { useState } from "react";
 
