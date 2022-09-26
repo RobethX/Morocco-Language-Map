@@ -26,7 +26,7 @@ export default function Map(props) {
                                 e.target.setAttribute("fill", "#fff");
                             }}
                         >
-                            <title>{feature.properties.name}</title>
+                            <title>{feature.properties["name:en"]}</title>
                         </path>
                     ))}
                 </g>
